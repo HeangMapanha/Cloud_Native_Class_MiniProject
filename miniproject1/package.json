@@ -1,0 +1,23 @@
+{
+  "name": "miniproject1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "api-gateway": "node api-gateway/api-gateway.js",
+    "student": "node student/index.js",
+    "teacher": "node teacher/index.js",
+    "start": "concurrently \"npm run api-gateway\" \"npm run student\" \"npm run teacher\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "http-proxy-middleware": "^3.0.5",
+    "httpproxy": "^1.0.2"
+  }
+}
