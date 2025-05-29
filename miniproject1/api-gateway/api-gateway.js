@@ -6,14 +6,16 @@ const httpProxy = require('http-proxy')
 const proxy = httpProxy.createProxyServer();
 
 //REDIRECT TO THE STUDENT MICROSERVICE
-app.all('/student', (req, res) => {
+app.all('/student/*', (req, res) => {
     console.log("INSIDE API GATEWAY STUDENT ROUTE")
+    req.url = req.url.replace(/^\/student/, '');
     proxy.web(req, res, { target: 'http://localhost:5000' });
 })
 
 //REDIRECT TO THE TEACHER MICROSERVICE
-app.all('/teacher', (req, res) => {
+app.all('/teacher/*', (req, res) => {
     console.log("INSIDE API GATEWAY TEACHER ROUTE")
+    req.url = req.url.replace(/^\/teacher/, '');
     proxy.web(req, res, { target: 'http://localhost:5001' });
 })
 
