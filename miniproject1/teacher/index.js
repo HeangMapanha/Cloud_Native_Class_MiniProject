@@ -15,5 +15,5 @@ app.delete('/removestudent', (req, res) => {
     res.send('<html><body>INSIDE remove API..</body></html>');
 });
 
-app.listen(5001, () =>
+app.listen(5001, '0.0.0.0',() =>
 console.log('EXPRESS Server Started at Port No: 5001'));
