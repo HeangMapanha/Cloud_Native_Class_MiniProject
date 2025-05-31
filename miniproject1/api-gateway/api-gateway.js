@@ -8,13 +8,13 @@ const proxy = httpProxy.createProxyServer();
 //REDIRECT TO THE STUDENT MICROSERVICE
 app.use('/student', (req, res) => {
     console.log("INSIDE API GATEWAY STUDENT ROUTE")
-    proxy.web(req, res, { target: 'http://localhost:5000' });
+    proxy.web(req, res, { target: 'http://3.87.245.121:5000' });
 })
 
 //REDIRECT TO THE TEACHER MICROSERVICE
 app.use('/teacher', (req, res) => {
     console.log("INSIDE API GATEWAY TEACHER ROUTE")
-    proxy.web(req, res, { target: 'http://localhost:5001' });
+    proxy.web(req, res, { target: 'http://34.204.18.186:5001' });
 })
 
 app.listen(4000,() => {
