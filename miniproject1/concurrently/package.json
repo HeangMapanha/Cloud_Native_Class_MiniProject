@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "api-gateway": "node api-gateway/api-gateway.js",
-    "student": "node student/index.js",
-    "teacher": "node teacher/index.js",
-    "auth" : "node login/index.js",
-    "start": "concurrently \"npm run api-gateway\" \"npm run student\" \"npm run teacher\"  \"npm run auth\""
+    "api-gateway": "node ../api-gateway/index.js",
+    "student": "node ../student/index.js",
+    "teacher": "node ../teacher/index.js",
+    "auth" : "node ../login/index.js",
+    "start": "concurrently \"npm run api-gateway\" \"npm run student\" \"npm run teacher\" \"npm run auth\""
   },
   "keywords": [],
   "author": "",

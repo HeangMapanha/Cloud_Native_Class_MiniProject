@@ -25,6 +25,6 @@ app.post("/login", (req, res) => {
     return res.status(400).send("Invalid user")
 })
 
-app.listen(5002, () => {
-    console.log('Authentication Service Server is running on PORT NO: 5002')
+app.listen(4001, () => {
+    console.log('Authentication Service Server is running on PORT NO: 4001')
 })
