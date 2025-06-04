@@ -35,18 +35,18 @@ function authRole(role) {
 //REDIRECT TO THE STUDENT MICROSERVICE
 app.use('/student',authToken, authRole('student'), (req, res) => {
     console.log("INSIDE API GATEWAY STUDENT ROUTE")
-    proxy.web(req, res, { target: 'http://13.218.232.30:5000' });
+    proxy.web(req, res, { target: 'http://18.234.84.172:5000' });
 })
 
 //REDIRECT TO THE TEACHER MICROSERVICE
 app.use('/teacher', authToken, authRole('teacher'),(req, res) => {
     console.log("INSIDE API GATEWAY TEACHER ROUTE")
-    proxy.web(req, res, { target: 'http://54.221.145.82:5001' });
+    proxy.web(req, res, { target: 'http://34.229.179.14:5001' });
 })
 
 //REDIRECT TO THE LOGIN(Authentication) MICROSERVICE
 app.use('/auth', (req, res) => {
-    proxy.web(req, res, { target: 'http://54.234.220.113:4001' });
+    proxy.web(req, res, { target: 'http://34.202.205.191:4001' });
 })
 
 app.listen(4000, () => {
