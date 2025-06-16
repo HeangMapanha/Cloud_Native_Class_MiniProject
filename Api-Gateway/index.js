@@ -34,22 +34,22 @@ function authRole(role) {
 
 app.use('/customer',authToken, authRole('customer'), (req, res) => {
     console.log("Customer API Access Granted")
-    proxy.web(req, res, { target: 'http://localhost:5003' });
+    proxy.web(req, res, { target: 'http://52.202.89.33:5003' });
 })
 
 app.use('/admin', authToken, authRole('admin'),(req, res) => {
     console.log("Admin API Access Granted")
-    proxy.web(req, res, { target: 'http://localhost:5002' });
+    proxy.web(req, res, { target: 'http://52.202.89.33:5002' });
 })
 
 app.use('/reg', (req, res) => {
     console.log("Registration Access Granted")
-    proxy.web(req, res, { target: 'http://localhost:4001' });
+    proxy.web(req, res, { target: 'http://3.84.134.25:4001' });
 })
 
 app.use('/log', (req, res) => {
     console.log("login Access Granted")
-    proxy.web(req, res, { target: 'http://localhost:4002' });
+    proxy.web(req, res, { target: 'http://3.84.134.25:4002' });
 })
 
 app.listen(4000, () => {
