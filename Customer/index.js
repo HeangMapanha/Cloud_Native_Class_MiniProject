@@ -29,7 +29,7 @@ app.get('/product/:product_name', async (req, res) => {
       return res.status(404).json({ message: 'Product not found' });
     }
 
-    res.status(200).json(product);
+    res.status(200).json(product.product_name);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -72,7 +72,8 @@ app.get('/yourorder/:emailid', async (req, res) => {
 
 app.delete('/yourorder/:emailid', async (req, res) => {
  try {
-  const delete_order = await OrderModel.findOneAndDelete({"user_emailid": req.params.emailid,
+  const delete_order = await OrderModel.findOneAndDelete({
+    "user_emailid": req.params.emailid,
     "product_name": req.body.product_name,
     "status": "in-processing"})
     if (delete_order) {

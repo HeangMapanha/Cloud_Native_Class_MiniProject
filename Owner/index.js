@@ -42,7 +42,7 @@ app.put('/updateorder', async (req, res) => {
   "user_emailid":req.body.emailid, 
   "product_name":req.body.product_name, 
   "status":"in-processing"}, update_delivered, { new:true})
-  res.status(200).json({message: "Order Update Successful"})
+  res.status(200).json({message: update_order.emailid, "Order Update Successful"})
  if (!updatedProduct) {
     return res.status(404).json({ message: 'Product not found' });
     }
@@ -71,9 +71,9 @@ app.delete('/customerorder', async (req, res) => {
     });
 
     if (deleted) {
-      res.status(200).json({ message: "Order canceled successfully" });
+      res.status(200).json({ message: "Order delete successfully" });
     } else {
-      res.status(404).json({ message: "Order not found or already processed" });
+      res.status(404).json({ message: "Order not found or already deleted" });
     }
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -90,12 +90,12 @@ app.post('/addproduct', (req, res) => {
     ProductModel.findOne({ "": req.body.product_name})
         .then(existingdocument => {
             if (existingdocument != null) {
-                res.status(404).send("product already existed")
+                res.status(404).send(existingdocument.product_name,"product already existed")
             }
             else {
                 pobj.save()
     .then(inserteddocument => {
-        res.status(200).send('Information inserted into Database');
+        res.status(200).send(existingdocument.product_name,'Information inserted into Database');
     })
     .catch(err => {
         res.status(500).send({message: err.message})
