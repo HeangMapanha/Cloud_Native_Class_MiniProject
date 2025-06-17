@@ -19,7 +19,7 @@ app.post("/login", (req, res) => {
     .then(getsearchdocument => {
       console.log(getsearchdocument)
       if (getsearchdocument.length > 0) {
-        const token = jwt.sign({ email: req.body.email,}, JWT_SECRETES, { expiresIn: '24h' })
+        const token = jwt.sign({ email: req.body.email,role: user.role}, JWT_SECRETES, { expiresIn: '24h' })
         return res.json({ token })
       }
       else {
