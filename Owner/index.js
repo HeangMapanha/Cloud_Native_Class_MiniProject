@@ -90,12 +90,12 @@ app.post('/addproduct', (req, res) => {
     ProductModel.findOne({ "product_name": req.body.product_name})
         .then(existingdocument => {
             if (existingdocument != null) {
-                res.status(404).send(existingdocument.product_name,"product already existed")
+                res.status(404).send(`Product "${existingdocument.product_name}" already existed`)
             }
             else {
                 pobj.save()
     .then(inserteddocument => {
-        res.status(200).send(existingdocument.product_name,'Information inserted into Database');
+        res.status(200).send(`Product "${existingdocument.product_name}" added to data base`);
     })
     .catch(err => {
         res.status(500).send({message: err.message})
