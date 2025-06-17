@@ -42,7 +42,7 @@ app.put('/updateorder', async (req, res) => {
   "user_emailid":req.body.emailid, 
   "product_name":req.body.product_name, 
   "status":"in-processing"}, update_delivered, { new:true})
-  res.status(200).json({message: update_order.emailid, "Order Update Successful"})
+  res.status(200).json({message: update_order.emailid, status: "Order Update Successful"})
  if (!updatedProduct) {
     return res.status(404).json({ message: 'Product not found' });
     }
