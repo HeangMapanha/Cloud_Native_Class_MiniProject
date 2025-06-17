@@ -24,9 +24,8 @@ app.get('/product/:product_name', async (req, res) => {
   try {
     const product = await ProductModel.findoOne({ "product_name": req.params.product_name });
     if (!product) {
-      return res.status(404).json({ message: 'Product not found' });
+      return res.status(404).json({ message: 'Product not founds' });
     }
-    console.log("yes")
 
   } catch (err) {
     res.status(500).json({ message: err.message });
