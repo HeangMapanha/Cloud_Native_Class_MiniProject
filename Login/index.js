@@ -31,6 +31,6 @@ app.post("/login", (req, res) => {
 )//CLOSE Post METHOD
 
 
-app.listen(4002, '0.0.0.0', ' ', () => {
+app.listen(4002, () => {
     console.log('Authentication Service Server is running on PORT NO: 4002')
 })
