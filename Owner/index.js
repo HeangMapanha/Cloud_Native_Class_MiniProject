@@ -95,7 +95,7 @@ app.post('/addproduct', (req, res) => {
             else {
                 pobj.save()
     .then(inserteddocument => {
-        res.status(200).send(`Product "${existingdocument.product_name}" added to data base`);
+        res.status(200).send(`Product "${pobj.product_name}" added to data base`);
     })
     .catch(err => {
         res.status(500).send({message: err.message})
