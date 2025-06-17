@@ -57,7 +57,7 @@ app.post('/checkout', (req, res) => {
 
 app.get('/yourorder/:emailid', async (req, res) => {
  try {
-    const order = await OrderModel.findOne({ "user_emailid": req.params.emailid });
+    const order = await OrderModel.find({ "user_emailid": req.params.emailid });
     if (!order) {
       return res.status(404).json({ message: "Order not found" });
     }
