@@ -5,7 +5,7 @@
   "scripts": {
     "api-gateway": "node ../Api-Gateway/index.js",
     "customer": "node ../Customer/index.js",
-    "owner": "node ../owner/index.js",
+    "owner": "node ../Owner/index.js",
     "auth" : "node ../Login/index.js",
     "registration" : "node ../Registration/index.js",
     "startall": "concurrently \"npm run api-gateway\" \"npm run customer\" \"npm run owner\" \"npm run auth\" \"npm run registration\"",
