@@ -20,7 +20,7 @@ app.get('/product', async (req, res) => {
           res.status(500).json({ message: err.message });
   }
 })
-app.get('/product/:product_name', async (req, res) => {
+app.get('/products/:product_name', async (req, res) => {
   try {
     const product = await ProductModel.findoOne({ "product_name": req.params.product_name });
     if (!product) {
