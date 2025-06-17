@@ -22,7 +22,7 @@ app.get('/product', async (req, res) => {
 })
 app.get('/product/:product_name', async (req, res) => {
   try {
-    const product = await ProductModel.findoOne({ "product_name": req.params.product_name });
+    const product = await ProductModel.findOne({ "product_name": req.params.product_name });
     if (!product) {
       return res.status(404).json({ message: 'Product not found' });
     }
