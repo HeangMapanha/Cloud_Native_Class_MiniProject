@@ -47,7 +47,7 @@ app.use('/reg', (req, res) => {
     proxy.web(req, res, { target: 'http://34.203.226.30:4001' });
 })
 
-app.use('/login', (req, res) => {
+app.use('/log', (req, res) => {
     console.log("login Access Granted")
     proxy.web(req, res, { target: 'http://34.203.226.30:4002' });
 })
