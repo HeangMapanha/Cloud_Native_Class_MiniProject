@@ -68,7 +68,7 @@ app.get('/yourorder/:emailid', async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 
-}) // customer view thier orders
+}) // customers view thier orders
 
 app.delete('/yourorder/:emailid', async (req, res) => {
  try {
