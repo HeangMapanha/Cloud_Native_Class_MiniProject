@@ -22,15 +22,14 @@ app.get('/product', async (req, res) => {
 })
 app.get('/product/:product_name', async (req, res) => {
   try {
-    const productName = req.params.product_name;
-    const products = await ProductModel.findOne({ "product_name": product_name });
+    const products = await ProductModel.findOne({ "product_name": req.params.product_name });
 
     if (!product) {
       return res.status(404).json({ message: 'Product not found' });
     }
 
     res.status(200).json(products);
-    console.log(products)
+    console.log
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
