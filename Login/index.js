@@ -14,13 +14,12 @@ const PersonModel = require('./person_schema.js');
 app.post("/login", (req, res) => {
   console.log(req.body.email)
   console.log(req.body.password)
-  console.log(req.body.role)
 
-  PersonModel.find({ "emailid": req.body.email, "pass": req.body.password, "role" : req.body.role})
+  PersonModel.find({ "emailid": req.body.email, "pass": req.body.password})
     .then(getsearchdocument => {
       console.log(getsearchdocument)
       if (getsearchdocument.length > 0) {
-        const token = jwt.sign({ email: req.body.email, role: req.body.role }, JWT_SECRETES, { expiresIn: '24h' })
+        const token = jwt.sign({ email: req.body.email,}, JWT_SECRETES, { expiresIn: '24h' })
         return res.json({ token })
       }
       else {
