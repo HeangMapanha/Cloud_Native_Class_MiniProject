@@ -1,0 +1,28 @@
+
+services:
+  mongo:
+    image: mongo
+    container_name: mongo_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+  login-service:
+    build: ./Login
+    image: heangmapanha/login-service:latest
+    container_name: "login-api"
+    ports:
+      - "4002:4002"
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/myDB
+
+volumes:
+  mongo_data:
+
+
+
+
+
+ 
